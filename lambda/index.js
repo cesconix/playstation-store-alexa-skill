@@ -1,6 +1,6 @@
 const Alexa = require('ask-sdk-core');
 
-/*const {
+const {
   LaunchRequestHandler,
   HelloWorldIntentHandler,
   HelpIntentHandler,
@@ -9,39 +9,7 @@ const Alexa = require('ask-sdk-core');
   SessionEndedRequestHandler,
   IntentReflectorHandler,
   ErrorHandler,
-} = require('./handlers');*/
-
-const LaunchRequestHandler = {
-  canHandle(handlerInput) {
-    return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
-    );
-  },
-  handle(handlerInput) {
-    let speakOutput = 'Benvenuti sul PlayStation Store. Vuoi cercare un gioco?';
-
-    return handlerInput.responseBuilder
-      .speak(speakOutput)
-      .reprompt(speakOutput)
-      .getResponse();
-  },
-};
-
-const ErrorHandler = {
-  canHandle() {
-    return true;
-  },
-  handle(handlerInput, error) {
-    const speakOutput =
-      'Sorry, I had trouble doing what you asked. Please try again.';
-    console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
-
-    return handlerInput.responseBuilder
-      .speak(speakOutput)
-      .reprompt(speakOutput)
-      .getResponse();
-  },
-};
+} = require('./handlers');
 
 /**
  * This handler acts as the entry point for your skill, routing all request and response
@@ -50,9 +18,14 @@ const ErrorHandler = {
  * */
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
-    LaunchRequestHandler,
+    LaunchRequestHandler(Alexa),
+    HelloWorldIntentHandler(Alexa),
+    HelpIntentHandler(Alexa),
+    CancelAndStopIntentHandler(Alexa),
+    FallbackIntentHandler(Alexa),
+    SessionEndedRequestHandler(Alexa),
+    IntentReflectorHandler(Alexa)
   )
-  .addErrorHandlers(ErrorHandler)
+  .addErrorHandlers(ErrorHandler(Alexa))
   .withCustomUserAgent('sample/hello-world/v1.2')
   .lambda();
-
