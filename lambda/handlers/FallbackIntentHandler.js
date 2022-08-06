@@ -1,11 +1,9 @@
-const Alexa = require('ask-sdk-core');
-
 /* *
  * FallbackIntent triggers when a customer says something that doesn’t map to any intents in your skill
  * It must also be defined in the language model (if the locale supports it)
  * This handler can be safely added but will be ingnored in locales that do not support it yet
  * */
-const FallbackIntentHandler = {
+const FallbackIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -21,6 +19,6 @@ const FallbackIntentHandler = {
       .reprompt(speakOutput)
       .getResponse();
   },
-};
+});
 
 module.exports = FallbackIntentHandler;

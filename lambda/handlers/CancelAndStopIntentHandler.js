@@ -1,6 +1,4 @@
-const Alexa = require('ask-sdk-core');
-
-const CancelAndStopIntentHandler = {
+const CancelAndStopIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -15,6 +13,6 @@ const CancelAndStopIntentHandler = {
 
     return handlerInput.responseBuilder.speak(speakOutput).getResponse();
   },
-};
+});
 
 module.exports = CancelAndStopIntentHandler;

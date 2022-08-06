@@ -19,13 +19,13 @@ const {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler(Alexa),
-    HelloWorldIntentHandler,
-    HelpIntentHandler,
-    CancelAndStopIntentHandler,
-    FallbackIntentHandler,
-    SessionEndedRequestHandler,
-    IntentReflectorHandler
+    HelloWorldIntentHandler(Alexa),
+    HelpIntentHandler(Alexa),
+    CancelAndStopIntentHandler(Alexa),
+    FallbackIntentHandler(Alexa),
+    SessionEndedRequestHandler(Alexa),
+    IntentReflectorHandler(Alexa)
   )
-  .addErrorHandlers(ErrorHandler)
+  .addErrorHandlers(ErrorHandler(Alexa))
   .withCustomUserAgent('sample/hello-world/v1.2')
   .lambda();

@@ -1,6 +1,4 @@
-const Alexa = require('ask-sdk-core');
-
-const HelpIntentHandler = {
+const HelpIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
@@ -15,6 +13,6 @@ const HelpIntentHandler = {
       .reprompt(speakOutput)
       .getResponse();
   },
-};
+});
 
 module.exports = HelpIntentHandler;
