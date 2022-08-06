@@ -16,7 +16,7 @@ const LaunchRequestHandler = (Alexa) => ({
       handlerInput.responseBuilder.addDirective({
         type: 'Alexa.Presentation.HTML.Start',
         request: {
-          uri: 'https://94a9-2-43-255-194.eu.ngrok.io/',
+          uri: 'https://b32c-2-43-255-194.eu.ngrok.io',
           method: 'GET',
         },
         configuration: {
