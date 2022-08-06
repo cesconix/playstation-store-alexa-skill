@@ -8,6 +8,7 @@ const {
   FallbackIntentHandler,
   SessionEndedRequestHandler,
   IntentReflectorHandler,
+  ErrorHandler,
 } = require('./handlers');
 
 /**
