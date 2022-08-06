@@ -15,7 +15,7 @@ const LaunchRequestHandler = {
         const supportedInterfaces = Alexa.getSupportedInterfaces(handlerInput.requestEnvelope);
         const htmlInterface = supportedInterfaces['Alexa.Presentation.HTML'];
         if(htmlInterface !== null && htmlInterface !== undefined) {
-            speakOutput = "Benvenuti sul PlayStation Store. Vuoi cercare un gioco da schermo?";
+            speakOutput = "Benvenuti sul PlayStation Store. Vuoi cercare un gioco?";
             handlerInput.responseBuilder.addDirective({
               type: "Alexa.Presentation.HTML.Start",
               request: {
