@@ -1,7 +1,7 @@
 const Alexa = require('ask-sdk-core');
 
-const {
-  //LaunchRequestHandler,
+/*const {
+  LaunchRequestHandler,
   HelloWorldIntentHandler,
   HelpIntentHandler,
   CancelAndStopIntentHandler,
@@ -9,7 +9,7 @@ const {
   SessionEndedRequestHandler,
   IntentReflectorHandler,
   ErrorHandler,
-} = require('./handlers');
+} = require('./handlers');*/
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -27,6 +27,22 @@ const LaunchRequestHandler = {
   },
 };
 
+const ErrorHandler = {
+  canHandle() {
+    return true;
+  },
+  handle(handlerInput, error) {
+    const speakOutput =
+      'Sorry, I had trouble doing what you asked. Please try again.';
+    console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
+
+    return handlerInput.responseBuilder
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse();
+  },
+};
+
 /**
  * This handler acts as the entry point for your skill, routing all request and response
  * payloads to the handlers above. Make sure any new handlers or interceptors you've
@@ -35,13 +51,8 @@ const LaunchRequestHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
-    HelloWorldIntentHandler(Alexa),
-    HelpIntentHandler(Alexa),
-    CancelAndStopIntentHandler(Alexa),
-    FallbackIntentHandler(Alexa),
-    SessionEndedRequestHandler(Alexa),
-    IntentReflectorHandler(Alexa)
   )
-  .addErrorHandlers(ErrorHandler(Alexa))
+  .addErrorHandlers(ErrorHandler)
   .withCustomUserAgent('sample/hello-world/v1.2')
   .lambda();
+
