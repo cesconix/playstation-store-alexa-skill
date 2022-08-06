@@ -24,4 +24,4 @@ const IntentReflectorHandler = {
   },
 };
 
-module.exports = { IntentReflectorHandler };
+module.exports = IntentReflectorHandler;

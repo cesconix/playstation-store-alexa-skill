@@ -19,4 +19,4 @@ const HelloWorldIntentHandler = {
   },
 };
 
-module.exports = { HelloWorldIntentHandler };
+module.exports = HelloWorldIntentHandler;

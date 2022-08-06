@@ -17,4 +17,4 @@ const CancelAndStopIntentHandler = {
   },
 };
 
-module.exports = { CancelAndStopIntentHandler };
+module.exports = CancelAndStopIntentHandler;

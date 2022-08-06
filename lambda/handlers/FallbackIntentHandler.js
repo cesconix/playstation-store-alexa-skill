@@ -23,4 +23,4 @@ const FallbackIntentHandler = {
   },
 };
 
-module.exports = { FallbackIntentHandler };
+module.exports = FallbackIntentHandler;
