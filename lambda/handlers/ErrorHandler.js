@@ -3,7 +3,7 @@
  * stating the request handler chain is not found, you have not implemented a handler for
  * the intent being invoked or included it in the skill builder below
  * */
-const ErrorHandler = {
+const ErrorHandler = (Alexa) => ({
   canHandle() {
     return true;
   },
@@ -17,6 +17,6 @@ const ErrorHandler = {
       .reprompt(speakOutput)
       .getResponse();
   },
-};
+});
 
 module.exports = ErrorHandler;
