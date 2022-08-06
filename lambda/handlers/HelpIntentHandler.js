@@ -17,4 +17,4 @@ const HelpIntentHandler = {
   },
 };
 
-export { HelpIntentHandler };
+module.exports = { HelpIntentHandler };

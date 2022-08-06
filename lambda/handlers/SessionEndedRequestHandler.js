@@ -21,4 +21,4 @@ const SessionEndedRequestHandler = {
   },
 };
 
-export { SessionEndedRequestHandler };
+module.exports = { SessionEndedRequestHandler };

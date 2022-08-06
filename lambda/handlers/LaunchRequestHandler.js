@@ -34,4 +34,4 @@ const LaunchRequestHandler = {
   },
 };
 
-export { LaunchRequestHandler };
+module.exports = { LaunchRequestHandler };

@@ -1,14 +1,14 @@
-const Alexa = require("ask-sdk-core");
+const Alexa = require('ask-sdk-core');
 
 const HelloWorldIntentHandler = {
   canHandle(handlerInput) {
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === "HelloWorldIntent"
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent'
     );
   },
   handle(handlerInput) {
-    const speakOutput = "Hello World!";
+    const speakOutput = 'Hello World!';
 
     return (
       handlerInput.responseBuilder
@@ -19,4 +19,4 @@ const HelloWorldIntentHandler = {
   },
 };
 
-export { HelloWorldIntentHandler };
+module.exports = { HelloWorldIntentHandler };
