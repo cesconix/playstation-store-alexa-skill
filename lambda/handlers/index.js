@@ -5,6 +5,7 @@ const HelloWorldIntentHandler = require('./HelloWorldIntentHandler');
 const HelpIntentHandler = require('./HelpIntentHandler');
 const IntentReflectorHandler = require('./IntentReflectorHandler');
 const LaunchRequestHandler = require('./LaunchRequestHandler');
+const SearchGameIntentHandler = require('./SearchGameIntentHandler');
 const SessionEndedRequestHandler = require('./SessionEndedRequestHandler');
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
   HelpIntentHandler,
   IntentReflectorHandler,
   LaunchRequestHandler,
+  SearchGameIntentHandler,
   SessionEndedRequestHandler,
 };

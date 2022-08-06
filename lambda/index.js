@@ -9,6 +9,7 @@ const {
   SessionEndedRequestHandler,
   IntentReflectorHandler,
   ErrorHandler,
+  SearchGameIntentHandler,
 } = require('./handlers');
 
 /**
@@ -19,6 +20,7 @@ const {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler(Alexa),
+    SearchGameIntentHandler(Alexa),
     HelloWorldIntentHandler(Alexa),
     HelpIntentHandler(Alexa),
     CancelAndStopIntentHandler(Alexa),
