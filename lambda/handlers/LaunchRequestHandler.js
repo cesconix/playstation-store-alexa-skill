@@ -1,4 +1,4 @@
-const LaunchRequestHandler = {
+const LaunchRequestHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
@@ -30,6 +30,6 @@ const LaunchRequestHandler = {
       .reprompt(speakOutput)
       .getResponse();
   },
-};
+});
 
 module.exports = LaunchRequestHandler;
