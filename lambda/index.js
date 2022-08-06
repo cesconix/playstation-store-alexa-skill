@@ -18,7 +18,7 @@ const {
  * */
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
-    LaunchRequestHandler,
+    LaunchRequestHandler(Alexa),
     HelloWorldIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
