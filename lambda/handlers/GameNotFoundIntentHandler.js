@@ -1,11 +1,21 @@
 const { supportsHTMLInterface } = require('../util');
 
-const OpenGameDetailIntentHandler = (Alexa) => ({
+function getMessageIntent(requestEnvelope) {
+  const requestMessage = requestEnvelope.request.message;
+  if (requestMessage) {
+    if (requestMessage.intent) {
+      return requestMessage.intent;
+    }
+  }
+  return null; // Otherwise no intent found in the message body
+}
+
+const GameNotFoundIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        'GameNotFoundIntent' &&
+      Alexa.getRequestType(handlerInput.requestEnvelope) ===
+        'Alexa.Presentation.HTML.Message' &&
+      getMessageIntent(handlerInput.requestEnvelope) === 'GameNotFoundIntent' &&
       supportsHTMLInterface(handlerInput, Alexa)
     );
   },
@@ -21,4 +31,4 @@ const OpenGameDetailIntentHandler = (Alexa) => ({
   },
 });
 
-module.exports = OpenGameDetailIntentHandler;
+module.exports = GameNotFoundIntentHandler;
