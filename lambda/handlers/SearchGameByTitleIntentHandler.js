@@ -1,11 +1,11 @@
 const { supportsHTMLInterface } = require('../util');
 
-const SearchGameIntentHandler = (Alexa) => ({
+const SearchGameByTitleIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
       Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        'SearchGameIntent' &&
+        'SearchGameByTitle' &&
       supportsHTMLInterface(handlerInput, Alexa)
     );
   },
@@ -15,8 +15,9 @@ const SearchGameIntentHandler = (Alexa) => ({
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
-        intent: ' SearchGameIntent',
-        playAnimation: true,
+        intent: 'SearchGameByTitle',
+        gameTitle:
+          handlerInput.requestEnvelope.request.intent.slots.gameTitle.value,
       },
     });
 
@@ -29,4 +30,4 @@ const SearchGameIntentHandler = (Alexa) => ({
   },
 });
 
-module.exports = SearchGameIntentHandler;
+module.exports = SearchGameByTitleIntentHandler;
