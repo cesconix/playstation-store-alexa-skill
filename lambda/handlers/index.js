@@ -15,7 +15,6 @@ module.exports = {
   CancelAndStopIntentHandler,
   ErrorHandler,
   FallbackIntentHandler,
-  GameNotFoundIntentHandler,
   HelloWorldIntentHandler,
   HelpIntentHandler,
   IntentReflectorHandler,
