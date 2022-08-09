@@ -14,7 +14,8 @@ const LaunchRequestHandler = (Alexa) => ({
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.Start',
       request: {
-        uri: 'https://b642-2-43-255-194.eu.ngrok.io',
+        // uri: 'https://b642-2-43-255-194.eu.ngrok.io',
+        uri: 'https://playstation-store.vercel.app',
         method: 'GET',
       },
       configuration: {
