@@ -8,7 +8,7 @@ const LaunchRequestHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    let speakOutput = 'Benvenuti sul PlayStation Store. Vuoi cercare un gioco?';
+    let speakOutput = 'Benvenuti sul PlayStation Store.';
 
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.Start',
