@@ -22,7 +22,7 @@ const SpeakIntentHandler = (Alexa) => ({
   handle(handlerInput) {
     return (
       handlerInput.responseBuilder
-        .speak(handlerInput.requestEnvelope.request.message)
+        .speak(handlerInput.requestEnvelope.request.message.message)
         //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
         .getResponse()
     );
