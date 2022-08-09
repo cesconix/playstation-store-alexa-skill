@@ -10,7 +10,7 @@ const SearchGameByTitleIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const speakOutput = 'Ok, ecco qui la lista degli ultimi giochi.';
+    // const speakOutput = 'Ok, ecco qui la lista degli ultimi giochi.';
 
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
@@ -23,7 +23,7 @@ const SearchGameByTitleIntentHandler = (Alexa) => ({
 
     return (
       handlerInput.responseBuilder
-        .speak(speakOutput)
+        // .speak(speakOutput)
         //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
         .getResponse()
     );

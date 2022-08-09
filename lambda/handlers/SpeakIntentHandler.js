@@ -10,25 +10,23 @@ function getMessageIntent(requestEnvelope) {
   return null; // Otherwise no intent found in the message body
 }
 
-const GameNotFoundIntentHandler = (Alexa) => ({
+const SpeakIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) ===
         'Alexa.Presentation.HTML.Message' &&
-      getMessageIntent(handlerInput.requestEnvelope) === 'GameNotFoundIntent' &&
+      getMessageIntent(handlerInput.requestEnvelope) === 'SpeakIntentHandler' &&
       supportsHTMLInterface(handlerInput, Alexa)
     );
   },
   handle(handlerInput) {
-    const speakOutput = 'Gioco non trovato';
-
     return (
       handlerInput.responseBuilder
-        .speak(speakOutput)
+        .speak(handlerInput.requestEnvelope.request.message)
         //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
         .getResponse()
     );
   },
 });
 
-module.exports = GameNotFoundIntentHandler;
+module.exports = SpeakIntentHandler;

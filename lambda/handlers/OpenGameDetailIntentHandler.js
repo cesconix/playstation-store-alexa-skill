@@ -10,7 +10,7 @@ const OpenGameDetailIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const speakOutput = 'Ok, do un occhio e sono da te AIOOOOO.';
+    const speakOutput = 'Ok, guardo subito.';
 
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',

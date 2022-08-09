@@ -6,13 +6,13 @@ const {
   HelpIntentHandler,
   CancelAndStopIntentHandler,
   FallbackIntentHandler,
-  GameNotFoundIntentHandler,
   SessionEndedRequestHandler,
   IntentReflectorHandler,
   ErrorHandler,
   SearchGameByTitleIntentHandler,
   SearchGameByCategoryIntentHandler,
   OpenGameDetailIntentHandler,
+  SpeakIntentHandler,
 } = require('./handlers');
 
 /**
@@ -26,7 +26,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     OpenGameDetailIntentHandler(Alexa),
     SearchGameByTitleIntentHandler(Alexa),
     SearchGameByCategoryIntentHandler(Alexa),
-    GameNotFoundIntentHandler(Alexa),
+    SpeakIntentHandler(Alexa),
     HelloWorldIntentHandler(Alexa),
     HelpIntentHandler(Alexa),
     CancelAndStopIntentHandler(Alexa),

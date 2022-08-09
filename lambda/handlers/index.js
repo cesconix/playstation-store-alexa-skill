@@ -1,7 +1,6 @@
 const CancelAndStopIntentHandler = require('./CancelAndStopIntentHandler');
 const ErrorHandler = require('./ErrorHandler');
 const FallbackIntentHandler = require('./FallbackIntentHandler');
-const GameNotFoundIntentHandler = require('./GameNotFoundIntentHandler');
 const HelloWorldIntentHandler = require('./HelloWorldIntentHandler');
 const HelpIntentHandler = require('./HelpIntentHandler');
 const IntentReflectorHandler = require('./IntentReflectorHandler');
@@ -10,6 +9,7 @@ const OpenGameDetailIntentHandler = require('./OpenGameDetailIntentHandler');
 const SearchGameByTitleIntentHandler = require('./SearchGameByTitleIntentHandler');
 const SearchGameByCategoryIntentHandler = require('./SearchGameByCategoryIntentHandler');
 const SessionEndedRequestHandler = require('./SessionEndedRequestHandler');
+const SpeakIntentHandler = require('./SpeakIntentHandler');
 
 module.exports = {
   CancelAndStopIntentHandler,
@@ -24,4 +24,5 @@ module.exports = {
   SearchGameByTitleIntentHandler,
   SearchGameByCategoryIntentHandler,
   SessionEndedRequestHandler,
+  SpeakIntentHandler,
 };
