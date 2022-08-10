@@ -6,8 +6,8 @@ const GetGamePriceIntentHandler = (Alexa) => ({
     return (
       supportsHTMLInterface(handlerInput, Alexa) &&
       Alexa.getRequestType(requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(requestEnvelope) === 'GetGamePriceIntent' &&
-      attributesManager.getSessionAttributes().inGameDetail
+      Alexa.getIntentName(requestEnvelope) === 'GetGamePriceIntent' 
+      //attributesManager.getSessionAttributes().inGameDetail
     );
   },
   handle(handlerInput) {
