@@ -2,6 +2,7 @@ const CancelAndStopIntentHandler = require('./CancelAndStopIntentHandler');
 const ErrorHandler = require('./ErrorHandler');
 const FallbackIntentHandler = require('./FallbackIntentHandler');
 const GetGamePriceByTitleIntent = require('./GetGamePriceByTitleIntentHandler');
+const GetGamePriceIntent = require('./GetGamePriceIntentHandler');
 const HelloWorldIntentHandler = require('./HelloWorldIntentHandler');
 const HelpIntentHandler = require('./HelpIntentHandler');
 const IntentReflectorHandler = require('./IntentReflectorHandler');
@@ -17,6 +18,7 @@ module.exports = {
   ErrorHandler,
   FallbackIntentHandler,
   GetGamePriceByTitleIntent,
+  GetGamePriceIntent,
   HelloWorldIntentHandler,
   HelpIntentHandler,
   IntentReflectorHandler,

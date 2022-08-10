@@ -2,31 +2,33 @@ const { supportsHTMLInterface } = require('../util');
 
 const OpenGameDetailIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
+    const { requestEnvelope } = handlerInput;
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        'OpenGameDetailIntent' &&
-      supportsHTMLInterface(handlerInput, Alexa)
+      supportsHTMLInterface(handlerInput, Alexa) &&
+      Alexa.getRequestType(requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(requestEnvelope) === 'OpenGameDetailIntent'
     );
   },
   handle(handlerInput) {
-    // const speakOutput = 'Ok, guardo subito.';
+    const { requestEnvelope, attributesManager, responseBuilder } =
+      handlerInput;
 
-    handlerInput.responseBuilder.addDirective({
+    const gameTitle = requestEnvelope.request.intent.slots.gameTitle.value;
+
+    const sessionAttributes = attributesManager.getSessionAttributes();
+    sessionAttributes.inGameDetail = true;
+    sessionAttributes.gameTitle = gameTitle;
+    attributesManager.setSessionAttributes(sessionAttributes);
+
+    responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
         intent: 'OpenGameDetailIntent',
-        gameTitle:
-          handlerInput.requestEnvelope.request.intent.slots.gameTitle.value,
+        gameTitle,
       },
     });
 
-    return (
-      handlerInput.responseBuilder
-        // .speak(speakOutput)
-        //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-        .getResponse()
-    );
+    return handlerInput.responseBuilder.getResponse();
   },
 });
 
