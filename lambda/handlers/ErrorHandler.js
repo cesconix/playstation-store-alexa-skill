@@ -8,9 +8,8 @@ const ErrorHandler = (Alexa) => ({
     return true;
   },
   handle(handlerInput, error) {
-    const speakOutput =
-      'Sorry, I had trouble doing what you asked. Please try again.';
-    console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
+    const speakOutput = "L'errore è:" + JSON.stringify(error);
+    // console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
