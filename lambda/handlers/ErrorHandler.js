@@ -12,6 +12,14 @@ const ErrorHandler = (Alexa) => ({
       'Sorry, I had trouble doing what you asked. Please try again.';
     console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
+    responseBuilder.addDirective({
+      type: 'Alexa.Presentation.HTML.HandleMessage',
+      message: {
+        intent: 'Error',
+        error,
+      },
+    });
+
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
