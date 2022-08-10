@@ -10,8 +10,7 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { requestEnvelope, attributesManager, responseBuilder } =
-      handlerInput;
+    const { attributesManager, responseBuilder } = handlerInput;
 
     const sessionAttributes = attributesManager.getSessionAttributes();
     sessionAttributes.inGameDetail = false;
@@ -26,7 +25,8 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
       },
     });
 
-    return responseBuilder.getResponse();
+    const speakOutput = 'Ammunìdarreri';
+    return responseBuilder.speak(speakOutput).getResponse();
   },
 });
 
