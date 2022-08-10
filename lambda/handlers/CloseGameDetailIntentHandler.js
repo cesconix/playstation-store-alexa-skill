@@ -1,29 +1,27 @@
 const { supportsHTMLInterface } = require('../util');
 
-const OpenGameDetailIntentHandler = (Alexa) => ({
+const CloseGameDetailIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     const { requestEnvelope } = handlerInput;
     return (
       supportsHTMLInterface(handlerInput, Alexa) &&
       Alexa.getRequestType(requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(requestEnvelope) === 'OpenGameDetailIntent'
+      Alexa.getIntentName(requestEnvelope) === 'CloseGameDetailIntent'
     );
   },
   handle(handlerInput) {
     const { requestEnvelope, attributesManager, responseBuilder } =
       handlerInput;
 
-    const gameTitle = requestEnvelope.request.intent.slots.gameTitle.value;
-
     const sessionAttributes = attributesManager.getSessionAttributes();
-    sessionAttributes.inGameDetail = true;
-    sessionAttributes.gameTitle = gameTitle;
+    sessionAttributes.inGameDetail = false;
+    sessionAttributes.gameTitle = null;
     attributesManager.setSessionAttributes(sessionAttributes);
 
     responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
-        intent: 'OpenGameDetailIntent',
+        intent: 'CloseGameDetailIntent',
         gameTitle,
       },
     });
@@ -32,4 +30,4 @@ const OpenGameDetailIntentHandler = (Alexa) => ({
   },
 });
 
-module.exports = OpenGameDetailIntentHandler;
+module.exports = CloseGameDetailIntentHandler;
