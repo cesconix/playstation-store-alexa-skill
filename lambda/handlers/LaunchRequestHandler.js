@@ -23,12 +23,10 @@ const LaunchRequestHandler = (Alexa) => ({
       },
     });
 
-    return (
-      handlerInput.responseBuilder
-        .speak(speakOutput)
-        // .reprompt(speakOutput)
-        .getResponse()
-    );
+    return handlerInput.responseBuilder
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse();
   },
 });
 
