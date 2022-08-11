@@ -23,10 +23,7 @@ const LaunchRequestHandler = (Alexa) => ({
       },
     });
 
-    return handlerInput.responseBuilder
-      .speak(speakOutput)
-      .reprompt('proviamo proviamo proviamo') // TODO
-      .getResponse();
+    return handlerInput.responseBuilder.speak(speakOutput).getResponse();
   },
 });
 
