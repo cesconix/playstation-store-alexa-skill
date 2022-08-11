@@ -10,7 +10,7 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { responseBuilder } = handlerInput;
+    const { responseBuilder, attributesManager } = handlerInput;
 
     const sessionAttributes = attributesManager.getSessionAttributes();
     sessionAttributes.product = null;
