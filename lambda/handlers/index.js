@@ -7,6 +7,8 @@ const GetGameDescriptionByTitleIntentHandler = require('./GetGameDescriptionByTi
 const GetGameDescriptionIntentHandler = require('./GetGameDescriptionIntentHandler');
 const GetGamePriceByTitleIntentHandler = require('./GetGamePriceByTitleIntentHandler');
 const GetGamePriceIntentHandler = require('./GetGamePriceIntentHandler');
+const GetRelatedGamesByTitleIntentHandler = require('./GetRelatedGamesByTitleIntentHandler');
+const GetRelatedGamesIntentIntentHandler = require('./GetRelatedGamesIntentIntentHandler');
 const HelloWorldIntentHandler = require('./HelloWorldIntentHandler');
 const HelpIntentHandler = require('./HelpIntentHandler');
 const IntentReflectorHandler = require('./IntentReflectorHandler');
@@ -27,6 +29,8 @@ module.exports = {
   GetGameDescriptionIntentHandler,
   GetGamePriceByTitleIntentHandler,
   GetGamePriceIntentHandler,
+  GetRelatedGamesByTitleIntentHandler,
+  GetRelatedGamesIntentIntentHandler,
   HelloWorldIntentHandler,
   HelpIntentHandler,
   IntentReflectorHandler,
