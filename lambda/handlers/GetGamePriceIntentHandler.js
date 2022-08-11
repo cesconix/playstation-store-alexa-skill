@@ -2,16 +2,19 @@ const { supportsHTMLInterface } = require('../util');
 
 const GetGamePriceIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
-    const { requestEnvelope, attributesManager } = handlerInput;
+    const { requestEnvelope } = handlerInput;
     return (
       supportsHTMLInterface(handlerInput, Alexa) &&
       Alexa.getRequestType(requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(requestEnvelope) === 'GetGamePriceIntent' &&
-      attributesManager.getSessionAttributes().inGameDetail == true
+      Alexa.getIntentName(requestEnvelope) === 'GetGamePriceIntent'
     );
   },
   handle(handlerInput) {
     const { attributesManager, responseBuilder } = handlerInput;
+
+    if (!attributesManager.getSessionAttributes().inGameDetail) {
+      return responseBuilder.speak('Non ho capito').getResponse();
+    }
 
     responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
