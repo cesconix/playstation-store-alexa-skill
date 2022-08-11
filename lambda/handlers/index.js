@@ -1,3 +1,4 @@
+const AddToCartByTitleIntentHandler = require('./AddToCartByTitleIntentHandler');
 const CancelAndStopIntentHandler = require('./CancelAndStopIntentHandler');
 const CloseGameDetailIntentHandler = require('./CloseGameDetailIntentHandler');
 const ErrorHandler = require('./ErrorHandler');
@@ -15,6 +16,7 @@ const SessionEndedRequestHandler = require('./SessionEndedRequestHandler');
 const SpeakIntentHandler = require('./SpeakIntentHandler');
 
 module.exports = {
+  AddToCartByTitleIntentHandler,
   CancelAndStopIntentHandler,
   CloseGameDetailIntentHandler,
   ErrorHandler,
