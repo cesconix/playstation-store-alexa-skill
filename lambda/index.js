@@ -22,6 +22,7 @@ const {
   GetRelatedGamesByTitleIntentHandler,
   GetRelatedGamesIntentHandler,
   SaveGameIntentHandler,
+  OpenCartIntentHandler,
 } = require('./handlers');
 
 /**
@@ -39,6 +40,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     SearchGameByCategoryIntentHandler(Alexa),
     GetGamePriceByTitleIntentHandler(Alexa),
     GetGamePriceIntentHandler(Alexa),
+    OpenCartIntentHandler(Alexa),
     AddToCartByTitleIntentHandler(Alexa),
     GetGameDescriptionByTitleIntentHandler(Alexa),
     GetGameDescriptionIntentHandler(Alexa),

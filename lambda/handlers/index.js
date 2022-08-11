@@ -13,6 +13,7 @@ const HelloWorldIntentHandler = require('./HelloWorldIntentHandler');
 const HelpIntentHandler = require('./HelpIntentHandler');
 const IntentReflectorHandler = require('./IntentReflectorHandler');
 const LaunchRequestHandler = require('./LaunchRequestHandler');
+const OpenCartIntentHandler = require('./OpenCartIntentHandler');
 const OpenGameDetailIntentHandler = require('./OpenGameDetailIntentHandler');
 const SaveGameIntentHandler = require('./SaveGameIntentHandler');
 const SearchGameByTitleIntentHandler = require('./SearchGameByTitleIntentHandler');
@@ -36,6 +37,7 @@ module.exports = {
   HelpIntentHandler,
   IntentReflectorHandler,
   LaunchRequestHandler,
+  OpenCartIntentHandler,
   OpenGameDetailIntentHandler,
   SaveGameIntentHandler,
   SearchGameByTitleIntentHandler,
