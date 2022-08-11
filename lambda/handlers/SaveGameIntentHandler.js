@@ -15,7 +15,8 @@ const SaveGameIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { requestEnvelope, responseBuilder } = handlerInput;
+    const { requestEnvelope, responseBuilder, attributesManager } =
+      handlerInput;
 
     const { product } = getRequestMessage(requestEnvelope);
 
