@@ -21,7 +21,6 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
         intent: 'CloseGameDetailIntent',
-        gameTitle,
       },
     });
 
