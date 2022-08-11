@@ -8,7 +8,7 @@ const ErrorHandler = (Alexa) => ({
     return true;
   },
   handle(handlerInput, error) {
-    const speakOutput = "L'errore è:" + JSON.stringify(error);
+    const speakOutput = "L'errore è:" + error.message;
     // console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
     handlerInput.responseBuilder.addDirective({
