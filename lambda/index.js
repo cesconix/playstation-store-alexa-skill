@@ -21,6 +21,7 @@ const {
   AddToCartByTitleIntentHandler,
   GetRelatedGamesByTitleIntentHandler,
   GetRelatedGamesIntentHandler,
+  SaveGameIntentHandler,
 } = require('./handlers');
 
 /**
