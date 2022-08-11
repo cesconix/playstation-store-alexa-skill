@@ -24,7 +24,7 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
       },
     });
 
-    const speakOutput = 'Ammunìdarreri';
+    const speakOutput = 'Ok';
     return responseBuilder.speak(speakOutput).getResponse();
   },
 });

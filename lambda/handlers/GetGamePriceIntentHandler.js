@@ -13,7 +13,9 @@ const GetGamePriceIntentHandler = (Alexa) => ({
     const { attributesManager, responseBuilder } = handlerInput;
 
     if (!attributesManager.getSessionAttributes().inGameDetail) {
-      return responseBuilder.speak('Non ho capito').getResponse();
+      return responseBuilder
+        .speak('Non ho capito. Prova prima ad aprire un gioco.')
+        .getResponse();
     }
 
     responseBuilder.addDirective({
