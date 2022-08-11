@@ -10,21 +10,18 @@ const OpenGameDetailIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { requestEnvelope, attributesManager, responseBuilder } =
-      handlerInput;
+    const { requestEnvelope, responseBuilder } = handlerInput;
 
-    const gameTitle = requestEnvelope.request.intent.slots.gameTitle.value;
-
-    const sessionAttributes = attributesManager.getSessionAttributes();
-    sessionAttributes.inGameDetail = true;
-    sessionAttributes.gameTitle = gameTitle;
-    attributesManager.setSessionAttributes(sessionAttributes);
+    // const sessionAttributes = attributesManager.getSessionAttributes();
+    // sessionAttributes.inGameDetail = true;
+    // sessionAttributes.gameTitle = gameTitle;
+    // attributesManager.setSessionAttributes(sessionAttributes);
 
     responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
         intent: 'OpenGameDetailIntent',
-        gameTitle,
+        gameTitle: requestEnvelope.request.intent.slots.gameTitle.value,
       },
     });
 

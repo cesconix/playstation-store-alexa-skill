@@ -12,7 +12,7 @@ const GetRelatedGamesIntentHandler = (Alexa) => ({
   handle(handlerInput) {
     const { attributesManager, responseBuilder } = handlerInput;
 
-    if (!attributesManager.getSessionAttributes().inGameDetail) {
+    if (!attributesManager.getSessionAttributes().product) {
       return responseBuilder
         .speak('Non ho capito. Prova prima ad aprire un gioco.')
         .getResponse();
@@ -22,7 +22,7 @@ const GetRelatedGamesIntentHandler = (Alexa) => ({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
         intent: 'GetRelatedGamesIntent',
-        gameTitle: attributesManager.getSessionAttributes().gameTitle,
+        gameTitle: attributesManager.getSessionAttributes().product.name,
       },
     });
 
