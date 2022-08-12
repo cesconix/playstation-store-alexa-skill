@@ -22,6 +22,8 @@ const {
   SaveGameIntentHandler,
   OpenCartIntentHandler,
   ReadCartItemIntentHandler,
+  DeleteCartItemIntentHandler,
+  UpdateCartItemIntentHandler,
   AddToCartIntentHandler,
 } = require('./handlers');
 
@@ -44,6 +46,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     ReadCartItemIntentHandler(Alexa),
     AddToCartByTitleIntentHandler(Alexa),
     AddToCartIntentHandler(Alexa),
+    UpdateCartItemIntentHandler(Alexa),
+    DeleteCartItemIntentHandler(Alexa),
     GetGameDescriptionByTitleIntentHandler(Alexa),
     GetGameDescriptionIntentHandler(Alexa),
     SpeakIntentHandler(Alexa),

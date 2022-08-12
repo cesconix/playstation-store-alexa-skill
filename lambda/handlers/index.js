@@ -2,6 +2,7 @@ const AddToCartByTitleIntentHandler = require('./AddToCartByTitleIntentHandler')
 const AddToCartIntentHandler = require('./AddToCartIntentHandler');
 const CancelAndStopIntentHandler = require('./CancelAndStopIntentHandler');
 const CloseGameDetailIntentHandler = require('./CloseGameDetailIntentHandler');
+const DeleteCartItemIntentHandler = require('./DeleteCartItemIntentHandler');
 const ErrorHandler = require('./ErrorHandler');
 const FallbackIntentHandler = require('./FallbackIntentHandler');
 const GetGameDescriptionByTitleIntentHandler = require('./GetGameDescriptionByTitleIntentHandler');
@@ -14,8 +15,9 @@ const IntentReflectorHandler = require('./IntentReflectorHandler');
 const LaunchRequestHandler = require('./LaunchRequestHandler');
 const OpenCartIntentHandler = require('./OpenCartIntentHandler');
 const OpenGameDetailIntentHandler = require('./OpenGameDetailIntentHandler');
-const SaveGameIntentHandler = require('./SaveGameIntentHandler');
 const ReadCartItemIntentHandler = require('./ReadCartItemIntentHandler');
+const UpdateCartItemIntentHandler = require('./UpdateCartItemIntentHandler');
+const SaveGameIntentHandler = require('./SaveGameIntentHandler');
 const SearchGameByTitleIntentHandler = require('./SearchGameByTitleIntentHandler');
 const SearchGameByCategoryIntentHandler = require('./SearchGameByCategoryIntentHandler');
 const SessionEndedRequestHandler = require('./SessionEndedRequestHandler');
@@ -26,6 +28,7 @@ module.exports = {
   AddToCartIntentHandler,
   CancelAndStopIntentHandler,
   CloseGameDetailIntentHandler,
+  DeleteCartItemIntentHandler,
   ErrorHandler,
   FallbackIntentHandler,
   GetGameDescriptionByTitleIntentHandler,
@@ -38,8 +41,9 @@ module.exports = {
   LaunchRequestHandler,
   OpenCartIntentHandler,
   OpenGameDetailIntentHandler,
-  SaveGameIntentHandler,
   ReadCartItemIntentHandler,
+  UpdateCartItemIntentHandler,
+  SaveGameIntentHandler,
   SearchGameByTitleIntentHandler,
   SearchGameByCategoryIntentHandler,
   SessionEndedRequestHandler,
