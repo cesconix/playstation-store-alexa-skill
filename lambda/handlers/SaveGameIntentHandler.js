@@ -24,7 +24,9 @@ const SaveGameIntentHandler = (Alexa) => ({
     sessionAttributes.product = product;
     attributesManager.setSessionAttributes(sessionAttributes);
 
-    return responseBuilder.getResponse();
+    return responseBuilder
+      .speak(`ho salvato ${product.name} in sessione`)
+      .getResponse();
   },
 });
 
