@@ -16,14 +16,14 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
     sessionAttributes.product = null;
     attributesManager.setSessionAttributes(sessionAttributes);
 
-    responseBuilder.addDirective({
-      type: 'Alexa.Presentation.HTML.HandleMessage',
-      message: {
-        intent: 'CloseGameDetailIntent',
-      },
-    });
+    // responseBuilder.addDirective({
+    //   type: 'Alexa.Presentation.HTML.HandleMessage',
+    //   message: {
+    //     intent: 'CloseGameDetailIntent',
+    //   },
+    // });
 
-    const speakOutput = 'Ok';
+    const speakOutput = 'pulisco la sessione';
     return responseBuilder.speak(speakOutput).getResponse();
   },
 });
