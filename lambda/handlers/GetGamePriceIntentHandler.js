@@ -12,21 +12,17 @@ const GetGamePriceIntentHandler = (Alexa) => ({
   handle(handlerInput) {
     const { attributesManager, responseBuilder } = handlerInput;
 
-    if (!attributesManager.getSessionAttributes().inGameDetail) {
+    const { product } = attributesManager.getSessionAttributes();
+
+    if (!product) {
       return responseBuilder
         .speak('Non ho capito. Prova prima ad aprire un gioco.')
         .getResponse();
     }
 
-    responseBuilder.addDirective({
-      type: 'Alexa.Presentation.HTML.HandleMessage',
-      message: {
-        intent: 'GetGamePriceIntent',
-        gameTitle: attributesManager.getSessionAttributes().gameTitle,
-      },
-    });
+    const speakOutput = `${product.name} costa ${product.price.value} euro.`;
 
-    return responseBuilder.getResponse();
+    return responseBuilder.speak(speakOutput).getResponse();
   },
 });
 

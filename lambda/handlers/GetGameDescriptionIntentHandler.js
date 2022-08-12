@@ -1,4 +1,5 @@
 const { supportsHTMLInterface } = require('../util');
+const { convert } = require('html-to-text');
 
 const GetGameDescriptionIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -12,21 +13,17 @@ const GetGameDescriptionIntentHandler = (Alexa) => ({
   handle(handlerInput) {
     const { attributesManager, responseBuilder } = handlerInput;
 
-    if (!attributesManager.getSessionAttributes().inGameDetail) {
+    const { product } = attributesManager.getSessionAttributes();
+
+    if (!product) {
       return responseBuilder
         .speak('Non ho capito. Prova prima ad aprire un gioco.')
         .getResponse();
     }
 
-    responseBuilder.addDirective({
-      type: 'Alexa.Presentation.HTML.HandleMessage',
-      message: {
-        intent: 'GetGameDescriptionIntent',
-        gameTitle: attributesManager.getSessionAttributes().gameTitle,
-      },
-    });
+    const speakOutput = convert(product.description);
 
-    return responseBuilder.getResponse();
+    return responseBuilder.speak(speakOutput).getResponse();
   },
 });
 
