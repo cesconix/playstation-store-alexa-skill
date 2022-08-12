@@ -1,4 +1,4 @@
-const { supportsHTMLInterface } = require('../util');
+const { supportsHTMLInterface, clearSession } = require('../util');
 
 const SearchGameByCategoryIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -10,6 +10,8 @@ const SearchGameByCategoryIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
+    clearSession(handlerInput);
+
     const speakOutput = 'Ok, ecco qui la lista degli ultimi giochi.';
 
     handlerInput.responseBuilder.addDirective({
@@ -21,12 +23,7 @@ const SearchGameByCategoryIntentHandler = (Alexa) => ({
       },
     });
 
-    return (
-      handlerInput.responseBuilder
-        .speak(speakOutput)
-        //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-        .getResponse()
-    );
+    return handlerInput.responseBuilder.speak(speakOutput).getResponse();
   },
 });
 

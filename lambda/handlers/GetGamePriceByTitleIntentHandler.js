@@ -1,4 +1,4 @@
-const { supportsHTMLInterface } = require('../util');
+const { supportsHTMLInterface, clearSession } = require('../util');
 
 const GetGamePriceByTitleIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -10,6 +10,8 @@ const GetGamePriceByTitleIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
+    clearSession(handlerInput);
+
     handlerInput.responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {

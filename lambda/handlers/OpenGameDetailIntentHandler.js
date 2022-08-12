@@ -12,11 +12,6 @@ const OpenGameDetailIntentHandler = (Alexa) => ({
   handle(handlerInput) {
     const { requestEnvelope, responseBuilder } = handlerInput;
 
-    // const sessionAttributes = attributesManager.getSessionAttributes();
-    // sessionAttributes.inGameDetail = true;
-    // sessionAttributes.gameTitle = gameTitle;
-    // attributesManager.setSessionAttributes(sessionAttributes);
-
     responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {

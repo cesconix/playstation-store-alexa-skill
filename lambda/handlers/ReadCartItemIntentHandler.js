@@ -1,4 +1,4 @@
-const { supportsHTMLInterface } = require('../util');
+const { supportsHTMLInterface, clearSession } = require('../util');
 
 const ReadCartItemIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -10,6 +10,8 @@ const ReadCartItemIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
+    clearSession(handlerInput);
+
     const { responseBuilder } = handlerInput;
 
     responseBuilder.addDirective({

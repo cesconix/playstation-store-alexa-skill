@@ -1,4 +1,4 @@
-const { supportsHTMLInterface } = require('../util');
+const { supportsHTMLInterface, clearSession } = require('../util');
 
 const CloseGameDetailIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -10,18 +10,16 @@ const CloseGameDetailIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { responseBuilder, attributesManager } = handlerInput;
+    clearSession(handlerInput);
 
-    const sessionAttributes = attributesManager.getSessionAttributes();
-    sessionAttributes.product = null;
-    attributesManager.setSessionAttributes(sessionAttributes);
+    const { responseBuilder } = handlerInput;
 
-    // responseBuilder.addDirective({
-    //   type: 'Alexa.Presentation.HTML.HandleMessage',
-    //   message: {
-    //     intent: 'CloseGameDetailIntent',
-    //   },
-    // });
+    responseBuilder.addDirective({
+      type: 'Alexa.Presentation.HTML.HandleMessage',
+      message: {
+        intent: 'CloseGameDetailIntent',
+      },
+    });
 
     const speakOutput = 'pulisco la sessione';
     return responseBuilder.speak(speakOutput).getResponse();

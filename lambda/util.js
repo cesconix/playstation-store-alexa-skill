@@ -40,3 +40,39 @@ module.exports.supportsHTMLInterface = function supportsHTMLInterface(
   const htmlInterface = supportedInterfaces['Alexa.Presentation.HTML'];
   return htmlInterface !== null && htmlInterface !== undefined;
 };
+
+/**
+ *
+ * @param {*} handlerInput
+ * @returns
+ */
+module.exports.getSession = function (handlerInput) {
+  const { attributesManager } = handlerInput;
+  const { product } = attributesManager.getSessionAttributes();
+  return product;
+};
+
+/**
+ *
+ * @param {*} product
+ * @param {*} handlerInput
+ */
+module.exports.saveSession = function (product, handlerInput) {
+  const { attributesManager } = handlerInput;
+
+  const sessionAttributes = attributesManager.getSessionAttributes();
+  sessionAttributes.product = product;
+  attributesManager.setSessionAttributes(sessionAttributes);
+};
+
+/**
+ *
+ * @param {*} handlerInput
+ */
+module.exports.clearSession = function (handlerInput) {
+  const { attributesManager } = handlerInput;
+
+  const sessionAttributes = attributesManager.getSessionAttributes();
+  sessionAttributes.product = null;
+  attributesManager.setSessionAttributes(sessionAttributes);
+};

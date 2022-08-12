@@ -1,4 +1,4 @@
-const { supportsHTMLInterface } = require('../util');
+const { supportsHTMLInterface, getSession } = require('../util');
 
 const GetGamePriceIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -10,9 +10,9 @@ const GetGamePriceIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { attributesManager, responseBuilder } = handlerInput;
+    const { responseBuilder } = handlerInput;
 
-    const { product } = attributesManager.getSessionAttributes();
+    const product = getSession(handlerInput);
 
     if (!product) {
       return responseBuilder

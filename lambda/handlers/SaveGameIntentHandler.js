@@ -1,4 +1,4 @@
-const { supportsHTMLInterface } = require('../util');
+const { supportsHTMLInterface, saveSession } = require('../util');
 
 function getRequestMessage(requestEnvelope) {
   return requestEnvelope.request.message || {};
@@ -15,14 +15,11 @@ const SaveGameIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    const { requestEnvelope, responseBuilder, attributesManager } =
-      handlerInput;
+    const { requestEnvelope, responseBuilder } = handlerInput;
 
     const { product } = getRequestMessage(requestEnvelope);
 
-    const sessionAttributes = attributesManager.getSessionAttributes();
-    sessionAttributes.product = product;
-    attributesManager.setSessionAttributes(sessionAttributes);
+    saveSession(product, handlerInput);
 
     return responseBuilder
       .speak(`ho salvato ${product.name} in sessione`)
