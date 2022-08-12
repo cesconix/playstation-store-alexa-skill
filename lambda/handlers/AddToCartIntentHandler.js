@@ -1,4 +1,4 @@
-const { supportsHTMLInterface, getSession } = require('../util');
+const { supportsHTMLInterface, getSession, clearSession } = require('../util');
 
 const AddToCartIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
@@ -10,6 +10,8 @@ const AddToCartIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
+    clearSession(handlerInput);
+
     const { responseBuilder } = handlerInput;
 
     const product = getSession(handlerInput);
