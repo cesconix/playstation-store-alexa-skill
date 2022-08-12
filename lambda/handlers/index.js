@@ -1,4 +1,5 @@
 const AddToCartByTitleIntentHandler = require('./AddToCartByTitleIntentHandler');
+const AddToCartIntentHandler = require('./AddToCartIntentHandler');
 const CancelAndStopIntentHandler = require('./CancelAndStopIntentHandler');
 const CloseGameDetailIntentHandler = require('./CloseGameDetailIntentHandler');
 const ErrorHandler = require('./ErrorHandler');
@@ -7,8 +8,6 @@ const GetGameDescriptionByTitleIntentHandler = require('./GetGameDescriptionByTi
 const GetGameDescriptionIntentHandler = require('./GetGameDescriptionIntentHandler');
 const GetGamePriceByTitleIntentHandler = require('./GetGamePriceByTitleIntentHandler');
 const GetGamePriceIntentHandler = require('./GetGamePriceIntentHandler');
-const GetRelatedGamesByTitleIntentHandler = require('./GetRelatedGamesByTitleIntentHandler');
-const GetRelatedGamesIntentHandler = require('./GetRelatedGamesIntentHandler');
 const HelloWorldIntentHandler = require('./HelloWorldIntentHandler');
 const HelpIntentHandler = require('./HelpIntentHandler');
 const IntentReflectorHandler = require('./IntentReflectorHandler');
@@ -24,6 +23,7 @@ const SpeakIntentHandler = require('./SpeakIntentHandler');
 
 module.exports = {
   AddToCartByTitleIntentHandler,
+  AddToCartIntentHandler,
   CancelAndStopIntentHandler,
   CloseGameDetailIntentHandler,
   ErrorHandler,
@@ -32,8 +32,6 @@ module.exports = {
   GetGameDescriptionIntentHandler,
   GetGamePriceByTitleIntentHandler,
   GetGamePriceIntentHandler,
-  GetRelatedGamesByTitleIntentHandler,
-  GetRelatedGamesIntentHandler,
   HelloWorldIntentHandler,
   HelpIntentHandler,
   IntentReflectorHandler,

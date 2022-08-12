@@ -1,18 +1,20 @@
 const { supportsHTMLInterface } = require('../util');
 
-const GetRelatedGamesIntentHandler = (Alexa) => ({
+const AddToCartIntentHandler = (Alexa) => ({
   canHandle(handlerInput) {
     const { requestEnvelope } = handlerInput;
     return (
       supportsHTMLInterface(handlerInput, Alexa) &&
       Alexa.getRequestType(requestEnvelope) === 'IntentRequest' &&
-      Alexa.getIntentName(requestEnvelope) === 'GetRelatedGamesIntent'
+      Alexa.getIntentName(requestEnvelope) === 'AddToCartIntent'
     );
   },
   handle(handlerInput) {
     const { attributesManager, responseBuilder } = handlerInput;
 
-    if (!attributesManager.getSessionAttributes().product) {
+    const { product } = attributesManager.getSessionAttributes();
+
+    if (!product) {
       return responseBuilder
         .speak('Non ho capito. Prova prima ad aprire un gioco.')
         .getResponse();
@@ -21,8 +23,8 @@ const GetRelatedGamesIntentHandler = (Alexa) => ({
     responseBuilder.addDirective({
       type: 'Alexa.Presentation.HTML.HandleMessage',
       message: {
-        intent: 'GetRelatedGamesIntent',
-        gameTitle: attributesManager.getSessionAttributes().product.name,
+        intent: 'AddToCartByTitleIntent',
+        gameTitle: product.name,
       },
     });
 
@@ -30,4 +32,4 @@ const GetRelatedGamesIntentHandler = (Alexa) => ({
   },
 });
 
-module.exports = GetRelatedGamesIntentHandler;
+module.exports = AddToCartIntentHandler;
