@@ -1,6 +1,7 @@
 const AddToCartByTitleIntentHandler = require('./AddToCartByTitleIntentHandler');
 const AddToCartIntentHandler = require('./AddToCartIntentHandler');
 const CancelAndStopIntentHandler = require('./CancelAndStopIntentHandler');
+const ClearCartIntentHandler = require('./ClearCartIntentHandler');
 const CloseGameDetailIntentHandler = require('./CloseGameDetailIntentHandler');
 const DeleteCartItemIntentHandler = require('./DeleteCartItemIntentHandler');
 const ErrorHandler = require('./ErrorHandler');
@@ -27,6 +28,7 @@ module.exports = {
   AddToCartByTitleIntentHandler,
   AddToCartIntentHandler,
   CancelAndStopIntentHandler,
+  ClearCartIntentHandler,
   CloseGameDetailIntentHandler,
   DeleteCartItemIntentHandler,
   ErrorHandler,
