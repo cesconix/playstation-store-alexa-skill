@@ -10,11 +10,13 @@ const AddToCartIntentHandler = (Alexa) => ({
     );
   },
   handle(handlerInput) {
-    clearSession(handlerInput);
-
     const { responseBuilder } = handlerInput;
 
     const product = getSession(handlerInput);
+
+    // I have to clear session because Next.js will
+    // change route to /cart (no more product detail page)
+    clearSession(handlerInput);
 
     if (!product) {
       return responseBuilder
