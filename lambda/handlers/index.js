@@ -16,6 +16,7 @@ const LaunchRequestHandler = require('./LaunchRequestHandler');
 const OpenCartIntentHandler = require('./OpenCartIntentHandler');
 const OpenGameDetailIntentHandler = require('./OpenGameDetailIntentHandler');
 const SaveGameIntentHandler = require('./SaveGameIntentHandler');
+const ReadCartItemIntentHandler = require('./ReadCartItemIntentHandler');
 const SearchGameByTitleIntentHandler = require('./SearchGameByTitleIntentHandler');
 const SearchGameByCategoryIntentHandler = require('./SearchGameByCategoryIntentHandler');
 const SessionEndedRequestHandler = require('./SessionEndedRequestHandler');
@@ -40,6 +41,7 @@ module.exports = {
   OpenCartIntentHandler,
   OpenGameDetailIntentHandler,
   SaveGameIntentHandler,
+  ReadCartItemIntentHandler,
   SearchGameByTitleIntentHandler,
   SearchGameByCategoryIntentHandler,
   SessionEndedRequestHandler,
